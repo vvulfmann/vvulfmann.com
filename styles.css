@@ -242,3 +242,9 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   background: linear-gradient(90deg, rgba(255,107,112,0.55), rgba(255,107,112,0) 85%);
 }
 .section-title { margin-bottom: 14px; }
+.site-nav { align-items: center; gap: 8px 0; }
+.site-nav a { display: inline-flex; align-items: center; }
+.site-nav a + a::before {
+  content: ""; width: 5px; height: 5px; margin: 0 16px; transform: rotate(45deg);
+  background: var(--accent); opacity: 0.7;
+}
