@@ -343,3 +343,5 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .social:hover { border-color: var(--accent); color: #fff; }
 .social .icon { width: 18px; height: 18px; color: var(--accent); }
 .social .social-arrow { width: 14px; height: 14px; color: var(--muted); }
+.socials-footer { justify-content: center; margin: 0 0 20px; }
+.book-box .section-title::after { display: none; }
