@@ -252,9 +252,8 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 /* NPC cast */
 .cast { position: relative; }
 .cast-row {
-  --h: min(400px, calc((100vw - 48px) / 3.65));
-  position: relative; display: flex; justify-content: center; align-items: flex-end; gap: calc(var(--h) * 0.14);
-  padding-top: 24px;
+  --h: min(420px, calc((100vw - 48px) * 0.36));
+  position: relative; height: calc(var(--h) * 1.1 + 24px);
 }
 .cast-row::before {
   content: ""; position: absolute; left: 10%; right: 10%; bottom: -10px; height: 60%;
@@ -262,17 +261,19 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   pointer-events: none;
 }
 .cast-row::after {
-  content: ""; position: absolute; left: 5%; right: 5%; bottom: -6px; height: 18px;
+  content: ""; position: absolute; left: 3%; right: 3%; bottom: -6px; height: 18px;
   background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.65), rgba(0,0,0,0) 70%);
   pointer-events: none;
 }
-.npc { position: relative; margin: 0; height: var(--h); flex: none; transition: transform 0.25s ease; transform-origin: 50% 100%; }
-.cast-group { position: relative; z-index: 1; display: flex; align-items: flex-end; }
-.npc + .npc { margin-left: calc(var(--h) * -0.32); }
+.npc {
+  position: absolute; bottom: 0; left: var(--x); margin: 0;
+  height: calc(var(--h) * var(--s));
+  margin-left: calc(var(--h) * var(--s) * var(--a) * var(--c) * -1);
+  transition: transform 0.25s ease; transform-origin: 50% 100%;
+}
 .npc img { display: block; height: 100%; width: auto; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.6)); }
-.npc.lead { height: calc(var(--h) * 1.1); margin-left: calc(var(--h) * -0.12); }
 .npc figcaption {
-  position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+  position: absolute; left: calc(var(--c) * 100%); bottom: 8px; transform: translateX(-50%);
   white-space: nowrap; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600;
   background: rgba(14,15,26,0.85); border: 1px solid var(--line); color: #fff;
   opacity: 0; transition: opacity 0.2s ease; pointer-events: none;
@@ -281,7 +282,8 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .npc:hover figcaption { opacity: 1; }
 .cast-names { margin: 28px 0 0; text-align: center; color: var(--muted); font-size: 14px; letter-spacing: 0.04em; }
 @media (max-width: 700px) {
-  .cast-row { --h: calc((100vw - 48px) / 1.25); flex-direction: column; align-items: center; gap: 28px; }
+  .cast { overflow-x: auto; margin: 0 -24px; padding: 0 24px; scrollbar-width: none; }
+  .cast-row { --h: 260px; min-width: 720px; }
 }
 @media (prefers-reduced-motion: reduce) { .npc { transition: none; } .npc:hover { transform: none; } }
 @media (max-width: 600px) { .section-title::after { display: none; } }
