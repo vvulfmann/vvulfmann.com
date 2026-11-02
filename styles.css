@@ -138,7 +138,7 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .review blockquote { margin: 0; color: #dcdcec; }
 .review figcaption { margin-top: auto; color: var(--muted); font-size: 14px; }
 .review figcaption strong { color: #fff; }
-.more { margin: 24px 0 0; }
+.review-actions { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; margin-top: 28px; }
 
 /* Games */
 .game-lists { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
