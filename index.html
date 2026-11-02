@@ -59,6 +59,10 @@
       <img src="images/wolf.png" alt="" width="40" height="40">
       <span>VVULFMANN</span>
     </a>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+      <span class="nav-toggle-bars" aria-hidden="true"></span>
+    </button>
+    <div class="site-menu" id="site-menu">
     <nav class="site-nav" aria-label="Main">
       <a href="#expect">At My Table</a>
       <a href="#reviews">Reviews</a>
@@ -72,6 +76,7 @@
       <a class="icon-link" href="mailto:vvulfmann@vvulfmann.com" aria-label="Email" title="vvulfmann@vvulfmann.com"><svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg></a>
       <a class="icon-link" href="https://github.com/vvulfmann" aria-label="GitHub" title="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></a>
       <a class="icon-link" href="https://foundryvtt.com/packages/vvulfmanns-playlist-randomizer" aria-label="Playlist Randomizer" title="Playlist Randomizer"><svg class="icon" aria-hidden="true"><use href="#i-music"></use></svg></a>
+    </div>
     </div>
   </header>
 
@@ -367,6 +372,18 @@
         start();
       }
       paint();
+    })();
+    (function () {
+      var header = document.querySelector('.site-header');
+      var toggle = document.getElementById('nav-toggle');
+      function setOpen(open) {
+        header.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      }
+      toggle.addEventListener('click', function () { setOpen(!header.classList.contains('menu-open')); });
+      document.getElementById('site-menu').addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
     })();
     (function () {
       var cast = document.querySelector('.cast');

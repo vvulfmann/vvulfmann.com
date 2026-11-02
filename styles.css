@@ -570,3 +570,42 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .logo-strip-section { padding-top: 72px; }
   #systems.logo-strip-section { padding-bottom: 48px; }
 }
+
+/* Header menu: inline on wider screens, a dropdown on phones */
+.site-menu { display: contents; }
+.nav-toggle { display: none; }
+@media (max-width: 760px) {
+  .site-header { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
+  .nav-toggle {
+    display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-right: -6px;
+    background: transparent; border: 1px solid #3a3e5e; border-radius: 10px; cursor: pointer; color: var(--text);
+  }
+  .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .nav-toggle-bars, .nav-toggle-bars::before, .nav-toggle-bars::after {
+    display: block; width: 20px; height: 2px; border-radius: 2px; background: currentColor; position: relative; transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle-bars::before, .nav-toggle-bars::after { content: ""; position: absolute; left: 0; }
+  .nav-toggle-bars::before { top: -6px; }
+  .nav-toggle-bars::after { top: 6px; }
+  .menu-open .nav-toggle-bars { background: transparent; }
+  .menu-open .nav-toggle-bars::before { transform: translateY(6px) rotate(45deg); }
+  .menu-open .nav-toggle-bars::after { transform: translateY(-6px) rotate(-45deg); }
+
+  .site-menu {
+    display: none; position: absolute; left: 12px; right: 12px; top: calc(100% - 4px); z-index: 30;
+    padding: 8px 18px 18px; border-radius: 14px; border: 1px solid #3a3e5e;
+    background: rgba(14,15,26,0.97); backdrop-filter: blur(10px); box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  }
+  .menu-open .site-menu { display: block; }
+  .site-header .site-nav {
+    display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 0;
+    width: auto; margin: 0; padding: 0; overflow: visible; white-space: normal; font-size: 17px;
+    -webkit-mask-image: none; mask-image: none; order: 0;
+  }
+  .site-header .site-nav a { padding: 14px 4px; border-bottom: 1px solid var(--line); color: var(--text); }
+  .site-nav a + a::before { display: none; }
+  .site-header .header-socials { display: flex; justify-content: flex-start; gap: 10px; margin: 16px 0 0; padding: 0; border: 0; }
+  .site-header .icon-link { width: 42px; height: 42px; }
+  .site-header .icon-link .icon { width: 19px; height: 19px; }
+  .hero { margin-top: -76px; padding-top: 130px; }
+}
