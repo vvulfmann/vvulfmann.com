@@ -279,10 +279,6 @@
       <svg class="icon icon-fill music-play" aria-hidden="true"><use href="#i-play"></use></svg>
       <svg class="icon music-pause" aria-hidden="true"><use href="#i-pause"></use></svg>
     </button>
-    <div class="music-info">
-      <span class="music-title">Creation's Hush</span>
-      <span class="music-sub" id="music-status">Tap to play</span>
-    </div>
     <svg class="icon music-vol-icon" aria-hidden="true"><use href="#i-volume"></use></svg>
     <input class="music-vol" id="music-volume" type="range" min="0" max="100" step="1" value="25" aria-label="Music volume">
     <audio id="music-audio" loop preload="metadata" src="audio/creations-hush.m4a"></audio>
@@ -327,7 +323,6 @@
       var audio = document.getElementById('music-audio');
       var btn = document.getElementById('music-toggle');
       var vol = document.getElementById('music-volume');
-      var status = document.getElementById('music-status');
       var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
                     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
       var saved = parseInt(store.get('music-volume'), 10);
@@ -341,7 +336,6 @@
         btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
         btn.setAttribute('aria-label', playing ? 'Pause music' : 'Play music');
         btn.classList.toggle('is-playing', playing);
-        status.textContent = playing ? 'Now playing' : (userPaused ? 'Paused' : 'Tap to play');
       }
       function start() {
         var p = audio.play();
