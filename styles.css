@@ -376,3 +376,27 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .combat-shot { margin: 0; }
 @media (max-width: 900px) { .combat { grid-template-columns: 1fr; gap: 28px; } }
 #games { padding-bottom: 96px; }
+
+/* Logo wall */
+.logo-group + .logo-group { margin-top: 32px; }
+.logo-label { margin: 0 0 12px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.logo-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.logo-tile {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  min-height: 104px; padding: 22px 24px; border-radius: 12px;
+  background: linear-gradient(180deg, #181a2e, #121426); border: 1px solid var(--line);
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.logo-tile:hover { border-color: rgba(255,107,112,0.5); transform: translateY(-3px); background: linear-gradient(180deg, #1d1f36, #14172a); }
+.logo-tile img { display: block; max-width: 100%; max-height: 44px; width: auto; height: auto; opacity: 0.92; }
+.logo-tile:hover img { opacity: 1; }
+.logo-tile img.mark { width: 34px; height: 34px; filter: invert(1); flex: none; }
+.logo-word { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: 0.04em; color: #fff; white-space: nowrap; }
+.logo-text { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; text-align: center; }
+.logo-note { margin: 24px 0 0; font-size: 13px; color: #8f92b3; max-width: 640px; }
+@media (max-width: 600px) { .logo-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } .logo-tile { padding: 18px 14px; min-height: 88px; } .logo-word, .logo-text { font-size: 18px; } }
+@media (min-width: 1000px) {
+  .logo-group:first-of-type .logo-grid { grid-template-columns: repeat(5, 1fr); }
+  .logo-group:last-of-type .logo-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.logo-text { white-space: nowrap; }
