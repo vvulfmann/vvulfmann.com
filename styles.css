@@ -229,3 +229,16 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .pl-vtt { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .pl-vtt img { width: 20px; height: 20px; }
 .btn-logo { width: 20px; height: 20px; }
+.section-title { display: flex; align-items: center; gap: 16px; }
+.title-icon {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 52px; height: 52px; border-radius: 12px;
+  background: rgba(255,107,112,0.12); border: 1px solid rgba(255,107,112,0.25); color: var(--accent);
+}
+.title-icon .icon { width: 26px; height: 26px; }
+@media (max-width: 600px) { .title-icon { width: 42px; height: 42px; } .title-icon .icon { width: 22px; height: 22px; } }
+.section-title::after {
+  content: ""; flex: 1; min-width: 40px; height: 1px; margin-left: 8px;
+  background: linear-gradient(90deg, rgba(255,107,112,0.55), rgba(255,107,112,0) 85%);
+}
+.section-title { margin-bottom: 14px; }
