@@ -380,3 +380,13 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 480px) { .footer-main { grid-template-columns: 1fr; } }
+
+/* Combat */
+.combat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 48px; align-items: center; }
+.combat .section-intro { margin-bottom: 24px; }
+.combat-points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.combat-points li { display: flex; gap: 14px; align-items: flex-start; color: var(--text-soft); }
+.combat-points strong { color: #fff; }
+.combat-points .icon { flex: none; width: 36px; height: 36px; padding: 8px; border-radius: 10px; background: rgba(255,107,112,0.12); color: var(--accent); }
+.combat-shot { margin: 0; }
+@media (max-width: 900px) { .combat { grid-template-columns: 1fr; gap: 28px; } }
