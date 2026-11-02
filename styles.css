@@ -222,4 +222,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 }
 @keyframes pl-pulse { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgba(255,107,112,0); } 80% { box-shadow: 0 0 0 6px rgba(255,107,112,0.25); } }
 .book-actions { display: flex; flex-direction: column; gap: 12px; }
-.fvtt-badge { display: block; width: 260px; max-width: 100%; margin: 0 0 20px; }
+.module-visual { flex: 1 1 380px; max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.module-visual .playlist { flex: none; width: 100%; max-width: none; margin: 0; }
+.fvtt-badge { display: block; width: 220px; max-width: 60%; opacity: 0.95; }
