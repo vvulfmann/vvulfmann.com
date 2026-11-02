@@ -203,7 +203,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   flex: 1 1 300px; max-width: 400px; margin: 0 auto;
   background: #1b1d33; border: 1px solid #3a3e5e; border-radius: 8px; overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,107,112,0.08);
-  transform: rotate(1.5deg);
 }
 .playlist-head { display: flex; align-items: center; gap: 10px; padding: 14px 18px; background: #24274a; font-weight: 600; color: #fff; }
 .playlist-head .icon { color: var(--accent); width: 18px; height: 18px; }
