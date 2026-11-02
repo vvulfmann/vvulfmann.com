@@ -271,7 +271,9 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   margin-left: calc(var(--h) * var(--s) * var(--a) * var(--c) * -1);
   transition: transform 0.25s ease; transform-origin: 50% 100%;
 }
-.npc img { display: block; height: 100%; width: auto; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.6)); }
+.npc img { display: block; height: 100%; width: auto; pointer-events: none; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.6)); }
+.npc { pointer-events: none; }
+.npc::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--c) * 100% - var(--h) * var(--s) * 0.19); width: calc(var(--h) * var(--s) * 0.38); pointer-events: auto; }
 .npc figcaption {
   position: absolute; left: calc(var(--c) * 100%); bottom: 8px; transform: translateX(-50%);
   white-space: nowrap; padding: 4px 10px; border-radius: 6px; font-size: 13px; font-weight: 600;
