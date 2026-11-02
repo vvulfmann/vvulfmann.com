@@ -443,3 +443,118 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .combat-shot .stage-frame img { aspect-ratio: 8 / 5; object-fit: cover; object-position: 100% 50%; }
 @media (max-width: 900px) { .combat { grid-template-columns: 1fr; } }
 #systems.logo-strip-section { padding-bottom: 96px; }
+
+/* ---------- Mobile polish ---------- */
+@media (max-width: 760px) {
+  /* Header: brand and icons on one row, links in a single swipeable row */
+  .site-header { padding-top: 14px; padding-bottom: 10px; gap: 10px 12px; flex-wrap: wrap; }
+  .brand { gap: 10px; }
+  .brand img { width: 32px; height: 32px; }
+  .brand span { font-size: 16px; }
+  .header-socials { gap: 6px; margin-left: auto; padding-left: 0; border-left: 0; }
+  .icon-link { width: 32px; height: 32px; }
+  .icon-link .icon { width: 16px; height: 16px; }
+  .site-header .site-nav {
+    order: 3; width: calc(100% + 48px); margin: 0 -24px; padding: 4px 24px 2px;
+    flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; font-size: 14px; white-space: nowrap;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+  }
+  .site-header .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a + a::before { margin: 0 10px; }
+  .hero { margin-top: -96px; padding-top: 150px; }
+}
+@media (max-width: 600px) {
+  .wrap { padding: 0 18px; }
+  .site-header .site-nav { width: calc(100% + 36px); margin: 0 -18px; padding: 4px 18px 2px; }
+
+  /* Hero */
+  .hero h1 { font-size: 32px; line-height: 1.15; }
+  .lede { font-size: 17px; margin-top: 18px; }
+  .actions { margin-top: 26px; }
+  .actions .btn { flex: 1 1 auto; }
+
+  /* Stats */
+  .stats li { flex: 1 1 45%; padding: 18px; }
+  .stat-value { font-size: 30px; gap: 10px; }
+  .stat-value .icon { width: 22px; height: 22px; }
+  .stat-label { font-size: 14px; }
+
+  /* Section headings */
+  .section { padding-top: 72px; }
+  .section h2 { font-size: 26px; }
+  .section-title { gap: 12px; align-items: center; }
+  .title-icon { width: 40px; height: 40px; border-radius: 10px; }
+  .title-icon .icon { width: 20px; height: 20px; }
+  .feature-intro .section-title { flex-wrap: nowrap; }
+  .section-intro { font-size: 16px; margin-bottom: 28px; }
+
+  /* Cards and lists */
+  .card { padding: 22px; }
+  .pull { padding: 40px 0; }
+  .feature-list li { gap: 16px; padding: 22px 0; }
+  .feature-list .card-icon { width: 44px; height: 44px; }
+  .feature-list h3 { font-size: 19px; }
+  .feature-list p { font-size: 16px; }
+  .combat-points .icon { width: 32px; height: 32px; padding: 7px; }
+
+  /* Screenshots run edge to edge for more detail */
+  .stage, .combat-shot { margin: 0 -18px; }
+  .stage-frame { border-radius: 0; border-left: 0; border-right: 0; }
+  .stage-notes { flex-direction: column; align-items: center; gap: 10px; }
+
+  /* Cast lineup: swipeable, starts centred on the villains */
+  .cast { margin: 0 -18px; padding: 0 18px; }
+  .cast-row { --h: 230px; min-width: 660px; }
+
+  /* Playlist mock */
+  .pl-vtt span, .pl-vtt { font-size: 0; gap: 0; }
+  .pl-vtt img { width: 18px; height: 18px; }
+  .playlist-head { padding: 14px 18px; font-size: 16px; }
+  .playlist li { padding: 12px 18px; font-size: 15px; gap: 12px; }
+  .module-actions, .module .actions { width: 100%; }
+  .module .actions .btn { flex: 1 1 auto; }
+
+  /* Logo strip: tidy two-column grid */
+  .logo-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 16px; justify-items: center; }
+  .logo-strip .logo-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  /* Footer */
+  .site-footer { padding-top: 56px; }
+  .footer-base { flex-direction: column; margin-top: 40px; }
+
+  /* Music: a small floating button; phones set volume with their own buttons */
+  .music { left: auto; right: 14px; bottom: 14px; padding: 6px; gap: 0; }
+  .music-info, .music-vol, .music-vol-icon { display: none; }
+  .music-btn { width: 48px; height: 48px; }
+  .site-footer { padding-bottom: 88px; }
+}
+@media (max-width: 600px) {
+  .site-header { display: grid; grid-template-columns: auto 1fr; align-items: center; }
+  .site-header .site-nav { grid-column: 1 / -1; }
+  .brand { gap: 8px; }
+  .brand span { font-size: 15px; letter-spacing: 0.06em; }
+  .header-socials { justify-self: end; gap: 5px; }
+  .icon-link { width: 30px; height: 30px; }
+}
+@media (max-width: 600px) {
+  .logo-strip .logo-tile.captioned { flex-direction: column; gap: 4px; }
+  .logo-strip .logo-tile { max-width: 100%; }
+  .logo-strip .logo-tile img { max-width: 100%; }
+  .site-header { padding-top: 16px; }
+}
+@media (max-width: 600px) {
+  .strip-label::before, .strip-label::after { display: none; }
+  .strip-label { letter-spacing: 0.16em; }
+  .logo-strip .logo-word { font-size: 14px; }
+  .logo-strip .logo-tile img.mark, .logo-strip .logo-tile img.mark-light { width: 22px; height: 22px; }
+  .logo-strip .logo-tile { gap: 8px; }
+  .logo-strip .logo-tile img[data-logo="dnd"], .logo-strip .logo-tile img[data-logo="alchemy"] { height: 18px; }
+  .logo-strip .logo-tile img[data-logo="daggerheart"] { height: 24px; }
+}
+@media (min-width: 761px) and (max-width: 1120px) {
+  .site-header { display: grid; grid-template-columns: auto 1fr; align-items: center; row-gap: 10px; }
+  .header-socials { justify-self: end; border-left: 0; padding-left: 0; margin-left: 0; }
+  .site-header .site-nav { grid-column: 1 / -1; grid-row: 2; margin-left: 0; }
+  .hero { margin-top: -108px; padding-top: 176px; }
+}

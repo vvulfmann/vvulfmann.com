@@ -368,6 +368,11 @@
       }
       paint();
     })();
+    (function () {
+      var cast = document.querySelector('.cast');
+      function centre() { if (cast && cast.scrollWidth > cast.clientWidth) cast.scrollLeft = (cast.scrollWidth - cast.clientWidth) / 2; }
+      window.addEventListener('load', centre);
+    })();
   </script>
 </body>
 </html>
