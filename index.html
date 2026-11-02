@@ -296,7 +296,7 @@
       <span class="music-sub" id="music-status">Tap to play</span>
     </div>
     <svg class="icon music-vol-icon" aria-hidden="true"><use href="#i-volume"></use></svg>
-    <input class="music-vol" id="music-volume" type="range" min="0" max="100" step="1" value="50" aria-label="Music volume">
+    <input class="music-vol" id="music-volume" type="range" min="0" max="100" step="1" value="25" aria-label="Music volume">
     <audio id="music-audio" loop preload="metadata" src="audio/creations-hush.m4a"></audio>
   </div>
 
@@ -314,7 +314,7 @@
       var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
                     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
       var saved = parseInt(store.get('music-volume'), 10);
-      var level = isNaN(saved) ? 50 : Math.min(100, Math.max(0, saved));
+      var level = isNaN(saved) ? 25 : Math.min(100, Math.max(0, saved));
       var userPaused = store.get('music-paused') === '1';
       vol.value = level;
       audio.volume = level / 100;
