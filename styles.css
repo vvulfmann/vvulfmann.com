@@ -396,7 +396,15 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .logo-note { margin: 24px 0 0; font-size: 13px; color: #8f92b3; max-width: 640px; }
 @media (max-width: 600px) { .logo-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } .logo-tile { padding: 18px 14px; min-height: 88px; } .logo-word, .logo-text { font-size: 18px; } }
 @media (min-width: 1000px) {
-  .logo-group:first-of-type .logo-grid { grid-template-columns: repeat(5, 1fr); }
-  .logo-group:last-of-type .logo-grid { grid-template-columns: repeat(4, 1fr); }
+  .logo-group:first-of-type .logo-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .logo-group:last-of-type .logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 .logo-text { white-space: nowrap; }
+.logo-tile.captioned { flex-direction: column; gap: 8px; }
+.logo-cap { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.logo-tile img.mark-light { width: 44px; height: 44px; max-height: none; flex: none; }
+.logo-tile img.logo-svg { max-height: 36px; }
+.logo-tile { min-width: 0; }
+.logo-grid { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
+@media (max-width: 999px) { .logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-tile.lockup { flex-direction: column; gap: 6px; } }
