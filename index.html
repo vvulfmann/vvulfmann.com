@@ -329,7 +329,13 @@
       var level = isNaN(saved) ? 25 : Math.min(100, Math.max(0, saved));
       var userPaused = store.get('music-paused') === '1';
       vol.value = level;
-      audio.volume = level / 100;
+
+      // Phones and narrow windows hide the slider and use their own volume buttons, so play at full volume there.
+      function applyVolume() {
+        audio.volume = getComputedStyle(vol).display === 'none' ? 1 : vol.value / 100;
+      }
+      applyVolume();
+      addEventListener('resize', applyVolume);
 
       function paint() {
         var playing = !audio.paused;
@@ -338,6 +344,7 @@
         btn.classList.toggle('is-playing', playing);
       }
       function start() {
+        applyVolume();
         var p = audio.play();
         if (p && p.catch) p.catch(function () { paint(); });
       }
@@ -347,7 +354,7 @@
         else { userPaused = true; store.set('music-paused', '1'); audio.pause(); }
       });
       vol.addEventListener('input', function () {
-        audio.volume = vol.value / 100;
+        applyVolume();
         store.set('music-volume', vol.value);
       });
       audio.addEventListener('play', paint);
@@ -355,10 +362,12 @@
 
       // Browsers block sound until the visitor interacts, so try now, then on the first tap, click, or keypress.
       var armed = !userPaused;
-      function firstGesture() {
+      function firstGesture(e) {
         if (!armed) return;
         armed = false;
         ['pointerdown', 'keydown', 'touchstart'].forEach(function (t) { removeEventListener(t, firstGesture, true); });
+        // A first press on the music button is handled by its own click handler; starting here too would toggle it straight back off.
+        if (e && btn.contains(e.target)) return;
         if (audio.paused && !userPaused) start();
       }
       if (armed) {
