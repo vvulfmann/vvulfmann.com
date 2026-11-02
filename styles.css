@@ -608,3 +608,9 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 @media (min-width: 601px) and (max-width: 1120px) {
   .site-menu { left: auto; right: 24px; width: 340px; }
 }
+
+/* Privacy page */
+.privacy { max-width: 720px; padding-top: 24px; padding-bottom: 96px; }
+.privacy h1 { font-family: var(--display); font-size: 40px; margin: 0 0 16px; }
+.privacy h2 { font-family: var(--display); font-size: 22px; margin: 36px 0 8px; }
+.privacy p { color: var(--text-soft); margin: 0 0 12px; }
