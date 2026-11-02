@@ -377,34 +377,57 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 @media (max-width: 900px) { .combat { grid-template-columns: 1fr; gap: 28px; } }
 #games { padding-bottom: 96px; }
 
-/* Logo wall */
-.logo-group + .logo-group { margin-top: 32px; }
-.logo-label { margin: 0 0 12px; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
-.logo-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
-.logo-tile {
-  display: flex; align-items: center; justify-content: center; gap: 12px;
-  min-height: 104px; padding: 22px 24px; border-radius: 12px;
-  background: linear-gradient(180deg, #181a2e, #121426); border: 1px solid var(--line);
-  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+/* Logo band */
+#systems { position: relative; }
+.logo-band {
+  position: relative; margin-top: 8px; padding: 48px 32px 40px; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 120% at 50% 0%, rgba(198,42,48,0.16), rgba(198,42,48,0) 70%),
+    linear-gradient(180deg, #14172a, #0f1122);
 }
-.logo-tile:hover { border-color: rgba(255,107,112,0.5); transform: translateY(-3px); background: linear-gradient(180deg, #1d1f36, #14172a); }
-.logo-tile img { display: block; max-width: 100%; max-height: 44px; width: auto; height: auto; opacity: 0.92; }
-.logo-tile:hover img { opacity: 1; }
-.logo-tile img.mark { width: 34px; height: 34px; filter: invert(1); flex: none; }
-.logo-word { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: 0.04em; color: #fff; white-space: nowrap; }
-.logo-text { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; text-align: center; }
-.logo-note { margin: 24px 0 0; font-size: 13px; color: #8f92b3; max-width: 640px; }
-@media (max-width: 600px) { .logo-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } .logo-tile { padding: 18px 14px; min-height: 88px; } .logo-word, .logo-text { font-size: 18px; } }
-@media (min-width: 1000px) {
-  .logo-group:first-of-type .logo-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-  .logo-group:last-of-type .logo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.logo-band::before, .logo-band::after {
+  content: ""; position: absolute; left: 50%; width: min(420px, 60%); height: 1px; transform: translateX(-50%);
+  background: linear-gradient(90deg, rgba(255,107,112,0), rgba(255,107,112,0.7), rgba(255,107,112,0));
 }
-.logo-text { white-space: nowrap; }
-.logo-tile.captioned { flex-direction: column; gap: 8px; }
-.logo-cap { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-.logo-tile img.mark-light { width: 44px; height: 44px; max-height: none; flex: none; }
-.logo-tile img.logo-svg { max-height: 36px; }
-.logo-tile { min-width: 0; }
-.logo-grid { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
-@media (max-width: 999px) { .logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-tile.lockup { flex-direction: column; gap: 6px; } }
+.logo-band::before { top: 0; }
+.logo-band::after { bottom: 0; }
+.logo-group { text-align: center; }
+.logo-group + .logo-group { margin-top: 44px; }
+.logo-label {
+  display: inline-flex; align-items: center; gap: 14px; margin: 0 0 28px; font-size: 13px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted); font-weight: 600;
+}
+.logo-label::before, .logo-label::after { content: ""; width: 36px; height: 1px; background: rgba(255,255,255,0.18); }
+.logo-grid { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 32px; }
+.logo-tile { display: flex; align-items: center; justify-content: center; gap: 12px; min-width: 0; transition: transform 0.25s ease; }
+.logo-tile:hover { transform: translateY(-3px); }
+.logo-tile img { display: block; width: auto; max-width: none; height: 34px; filter: brightness(0) invert(1); opacity: 0.72; transition: opacity 0.25s ease, filter 0.25s ease; }
+.logo-tile:hover img { opacity: 1; filter: none; }
+.logo-tile img[data-logo="dnd"] { height: 26px; }
+.logo-tile img[data-logo="daggerheart"] { height: 34px; }
+.logo-tile img[data-logo="alchemy"] { height: 30px; }
+.logo-tile img[data-logo="beyond"] { height: 50px; }
+.logo-tile img[data-logo="freeleague"] { height: 34px; filter: none; opacity: 0.75; }
+.logo-tile img[data-logo="freeleague"]:hover, .logo-tile:hover img[data-logo="freeleague"] { opacity: 1; }
+.logo-tile img[data-logo="paizo"] { height: 54px; filter: grayscale(1) brightness(1.15); opacity: 0.8; }
+.logo-tile:hover img[data-logo="paizo"] { filter: none; }
+.logo-tile img.mark, .logo-tile img.mark-light { width: 32px; height: 32px; flex: none; }
+.logo-tile img.mark { filter: invert(1); }
+.logo-tile img.mark-light { filter: none; }
+.logo-tile:hover img.mark { filter: invert(1); }
+.logo-tile:hover img.mark-light { filter: none; }
+.logo-tile.captioned { flex-direction: column; gap: 6px; }
+.logo-cap { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.logo-word { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: 0.05em; color: #fff; white-space: nowrap; opacity: 0.85; }
+.logo-tile:hover .logo-word { opacity: 1; }
+.logo-note { margin: 36px auto 0; text-align: center; font-size: 12px; color: #8f92b3; max-width: 560px; }
+@media (max-width: 700px) {
+  .logo-band { padding: 36px 16px 32px; }
+  .logo-grid { gap: 24px 32px; }
+  .logo-tile img { height: 26px; }
+  .logo-tile img[data-logo="dnd"] { height: 22px; } .logo-tile img[data-logo="alchemy"] { height: 22px; }
+  .logo-tile img[data-logo="daggerheart"] { height: 28px; } .logo-tile img[data-logo="beyond"] { height: 38px; }
+  .logo-tile img[data-logo="freeleague"] { height: 26px; } .logo-tile img[data-logo="paizo"] { height: 42px; }
+  .logo-word { font-size: 18px; }
+}
