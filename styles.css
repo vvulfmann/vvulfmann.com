@@ -285,3 +285,15 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 }
 @media (prefers-reduced-motion: reduce) { .npc { transition: none; } .npc:hover { transform: none; } }
 @media (max-width: 600px) { .section-title::after { display: none; } }
+
+/* Foundry stage */
+.stage { margin: 0; }
+.stage-frame {
+  position: relative; border-radius: 12px; overflow: hidden;
+  border: 1px solid #3a3e5e;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 6px rgba(255,107,112,0.06), 0 0 60px rgba(198,42,48,0.18);
+}
+.stage-frame img { display: block; width: 100%; height: auto; }
+.stage-notes { list-style: none; margin: 24px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 32px; color: var(--text-soft); font-size: 15px; }
+.stage-notes li { display: flex; align-items: center; gap: 8px; }
+.stage-notes .icon { width: 18px; height: 18px; color: var(--accent); }
