@@ -552,12 +552,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .logo-strip .logo-tile img[data-logo="dnd"], .logo-strip .logo-tile img[data-logo="alchemy"] { height: 18px; }
   .logo-strip .logo-tile img[data-logo="daggerheart"] { height: 24px; }
 }
-@media (min-width: 761px) and (max-width: 1120px) {
-  .site-header { display: grid; grid-template-columns: auto 1fr; align-items: center; row-gap: 10px; }
-  .header-socials { justify-self: end; border-left: 0; padding-left: 0; margin-left: 0; }
-  .site-header .site-nav { grid-column: 1 / -1; grid-row: 2; margin-left: 0; }
-  .hero { margin-top: -108px; padding-top: 176px; }
-}
 /* Touch devices (phones and tablets) control volume with hardware buttons */
 @media (hover: none) and (pointer: coarse) {
   .music { left: auto; right: 14px; bottom: 14px; padding: 6px; gap: 0; }
@@ -571,10 +565,10 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   #systems.logo-strip-section { padding-bottom: 48px; }
 }
 
-/* Header menu: inline on wider screens, a dropdown on phones */
+/* Header menu: inline on desktop, a dropdown on tablets and phones */
 .site-menu { display: contents; }
 .nav-toggle { display: none; }
-@media (max-width: 760px) {
+@media (max-width: 1120px) {
   .site-header { display: flex; flex-wrap: nowrap; align-items: center; justify-content: space-between; padding-top: 16px; padding-bottom: 16px; }
   .nav-toggle {
     display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; margin-right: -6px;
@@ -613,4 +607,7 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .review-actions { flex-direction: column; align-items: stretch; gap: 16px; }
   .review-actions .btn { width: 100%; }
   .review-actions .text-link { justify-content: center; }
+}
+@media (min-width: 601px) and (max-width: 1120px) {
+  .site-menu { left: auto; right: 24px; width: 340px; }
 }
