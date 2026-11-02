@@ -142,15 +142,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 }
 .game-lists ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; color: #dcdcec; }
 
-/* Booking */
-.book { padding-bottom: 96px; }
-.book-box {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-  padding: clamp(32px, 5vw, 64px);
-  display: flex; flex-wrap: wrap; gap: 32px; align-items: center; justify-content: space-between;
-}
-.book-box > div { flex: 999 1 420px; min-width: 0; }
-.book-box p { margin: 0; color: var(--text-soft); font-size: 18px; max-width: 560px; }
 
 
 @media (max-width: 600px) {
@@ -181,10 +172,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .game-lists h3 .icon { width: 18px; height: 18px; }
 .text-link { display: inline-flex; align-items: center; gap: 6px; }
 .text-link .icon { width: 16px; height: 16px; }
-.book-facts { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 24px; color: var(--text); font-size: 18px; font-weight: 500; }
-.book-facts li { display: flex; align-items: center; gap: 8px; }
-.book-facts .icon { width: 20px; height: 20px; color: var(--accent); }
-.book-box h2 { margin-bottom: 16px; }
 
 /* Foundry module */
 .module { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
@@ -215,7 +202,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .playlist li:nth-child(3) .pl-dice.on { animation-delay: 2.1s; }
 }
 @keyframes pl-pulse { 0%, 70%, 100% { box-shadow: 0 0 0 0 rgba(255,107,112,0); } 80% { box-shadow: 0 0 0 6px rgba(255,107,112,0.25); } }
-.book-actions { display: flex; flex-direction: column; gap: 12px; }
 .module-visual { flex: 1 1 380px; max-width: 520px; margin: 0 auto; }
 .module-visual .playlist { width: 100%; max-width: none; margin: 0; }
 .playlist-head { justify-content: space-between; }
@@ -337,7 +323,6 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
 .social:hover { border-color: var(--accent); color: #fff; }
 .social .icon { width: 18px; height: 18px; color: var(--accent); }
 .social .social-arrow { width: 14px; height: 14px; color: var(--muted); }
-.book-box .section-title::after { display: none; }
 
 /* Header social icons */
 .site-header .site-nav { margin-left: auto; }
