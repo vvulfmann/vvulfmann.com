@@ -609,3 +609,8 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .site-header .icon-link .icon { width: 19px; height: 19px; }
   .hero { margin-top: -76px; padding-top: 130px; }
 }
+@media (max-width: 600px) {
+  .review-actions { flex-direction: column; align-items: stretch; gap: 16px; }
+  .review-actions .btn { width: 100%; }
+  .review-actions .text-link { justify-content: center; }
+}
