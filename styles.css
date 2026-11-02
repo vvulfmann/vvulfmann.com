@@ -465,7 +465,7 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .hero { margin-top: -96px; padding-top: 150px; }
 }
 @media (max-width: 600px) {
-  .wrap { padding: 0 18px; }
+  .wrap { padding-left: 18px; padding-right: 18px; }
   .site-header .site-nav { width: calc(100% + 36px); margin: 0 -18px; padding: 4px 18px 2px; }
 
   /* Hero */
@@ -563,4 +563,10 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .music { left: auto; right: 14px; bottom: 14px; padding: 6px; gap: 0; }
   .music-info, .music-vol, .music-vol-icon { display: none; }
   .music-btn { width: 48px; height: 48px; }
+}
+/* Logo strip spacing matches the other sections */
+.logo-strip-section { padding-top: 112px; }
+@media (max-width: 600px) {
+  .logo-strip-section { padding-top: 72px; }
+  #systems.logo-strip-section { padding-bottom: 48px; }
 }
