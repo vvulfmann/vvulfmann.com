@@ -558,3 +558,9 @@ a:focus-visible, .btn:focus-visible { outline: 2px solid var(--accent); outline-
   .site-header .site-nav { grid-column: 1 / -1; grid-row: 2; margin-left: 0; }
   .hero { margin-top: -108px; padding-top: 176px; }
 }
+/* Touch devices (phones and tablets) control volume with hardware buttons */
+@media (hover: none) and (pointer: coarse) {
+  .music { left: auto; right: 14px; bottom: 14px; padding: 6px; gap: 0; }
+  .music-info, .music-vol, .music-vol-icon { display: none; }
+  .music-btn { width: 48px; height: 48px; }
+}
